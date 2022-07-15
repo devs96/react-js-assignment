@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../../Components/Header";
 import RenderCharacters from "../../Components/RenderCharacters";
@@ -30,7 +30,6 @@ const Home = () => {
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [firstRender, setFirstRender] = useState<boolean>(false);
   const [searchText, setSearchText] = useState<string>();
-  const [slideIn, setSlideIn] = useState<string>("0%");
   const history = useNavigate();
 
   useEffect(() => {
