@@ -1,0 +1,175 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 450px));
+  grid-gap: 20px 50px;
+  color: white;
+  justify-content: flex-start;
+  padding-left: 3%;
+  margin-top: 4%;
+  margin-bottom: 5%;
+}
+
+.item {
+  background-color: #131313;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.item:hover {
+  transform: scale(1.04);
+  transition: 0.4s;
+  background-color: #202020;
+}
+
+.characterImg {
+  aspect-ratio: 3/4;
+  width: 160px;
+  padding: 14px;
+  object-fit: cover;
+}
+
+.likeView {
+  flex: 0.1;
+  margin: 14px;
+}
+
+.likeIconView {
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.dataView {
+  flex: 0.9;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.charName {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.charNickname {
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 5%;
+}
+
+.portrayedView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30%;
+}
+
+.portrayedKey {
+  color: #18ca75;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.portrayedValue {
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 20px;
+}
+
+p {
+  margin: 0rem;
+}
+
+.leftHeaderView {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rightHeaderView {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.breakingBadTitle {
+  margin-left: 1rem;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.searchIconView {
+  margin-right: 2rem;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  height: 2.5rem;
+}
+
+.textfield {
+  background-color: #232323;
+  color: white;
+  border: 0;
+  outline: 0;
+  height: 2.5rem;
+  width: 15rem;
+  padding-right: 2.5rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+  animation: fade-in-keyframes 1s;
+}
+
+.textfield_active {
+  animation: fade-out-keyframes 1s;
+  background-color: #070707;
+  color: white;
+  border: 0;
+  outline: 0;
+  height: 2.5rem;
+  width: 0rem;
+  padding-right: 2.5rem;
+  padding-left: 1rem;
+  border-radius: 5px;
+}
+
+.textfield_hidden {
+  visibility: hidden;
+}
+
+@keyframes fade-in-keyframes {
+  from {
+    width: 0rem;
+    background-color: #070707;
+  }
+  to {
+    width: 15rem;
+    background-color: #232323;
+  }
+}
+
+@keyframes fade-out-keyframes {
+  from {
+    width: 15rem;
+    background-color: #232323;
+  }
+  to {
+    width: 0rem;
+    background-color: #070707;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+input:focus {
+  outline: none;
+}
