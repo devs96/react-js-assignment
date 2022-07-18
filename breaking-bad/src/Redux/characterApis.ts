@@ -4,10 +4,6 @@ export const getCharacterApi = () => {
       return res.json();
     })
     .then((response) => {
-      // const temp: CharacterData[] = [];
-      // response.forEach((e: CharacterData) => {
-      //   temp.push({ ...e, isFav: false });
-      // });
       return response;
     })
     .catch((err) => {

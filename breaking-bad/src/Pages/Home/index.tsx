@@ -27,10 +27,15 @@ export interface CharacterData {
 const Home = () => {
   const characterArr = useSelector((state: RootState) => state.characterArr);
   const [allCharacters, setAllCharacters] = useState<CharacterData[]>([]);
-  const [showSearchBar, setShowSearchBar] = useState<boolean>(true);
+  const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
+  const [firstRender, setFirstRender] = useState<boolean>(false);
   const [searchText, setSearchText] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const history = useNavigate();
+
+  useEffect(() => {
+    setFirstRender(true);
+  }, []);
 
   useEffect(() => {
     if (allCharacters && allCharacters.length === 0) {
@@ -76,16 +81,18 @@ const Home = () => {
         <div className={styles.searchIconView}>
           <input
             className={
-              showSearchBar ? styles.textfield_active : styles.textfield
+              showSearchBar
+                ? styles.textfield
+                : firstRender
+                ? styles.textfield_active
+                : styles.textfield_hidden
             }
             value={searchText}
-            // type="text"
             onChange={(text) => {
               setSearchText(text.target.value);
               setIsLoading(true);
             }}
             placeholder="Search"
-            // autoComplete="false"
           />
 
           <div
