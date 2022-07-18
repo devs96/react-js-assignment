@@ -21,6 +21,9 @@ const RenderCharacters: FC<CharactersProps> = ({ characterData, history }) => {
   return (
     <>
       {characterData?.map((character, index) => {
+        const favorite = favArr.find(
+          (element) => element.char_id === character.char_id
+        );
         return (
           <div
             className={styles.item}
@@ -54,34 +57,42 @@ const RenderCharacters: FC<CharactersProps> = ({ characterData, history }) => {
               className={styles.likeView}
               onClick={(e) => {
                 e.stopPropagation();
-                var tempArr = [...characterData];
-                var tempFavArr = [...favArr];
+                let tempFavArr = [...favArr];
+                if (favorite) {
+                  tempFavArr = tempFavArr.filter((item: CharacterData) => {
+                    return item.char_id !== character.char_id;
+                  });
+                } else {
+                  tempFavArr.push(character);
+                }
 
-                tempArr.forEach((element) => {
-                  if (element.char_id === character.char_id) {
-                    if (element.isFav === true) {
-                      element.isFav = false;
-                      const filterChar = favArr.filter(
-                        (item) => item.char_id !== element.char_id
-                      );
-                      dispatch({
-                        type: typeActions.FAV_ARR,
-                        payload: filterChar,
-                      });
-                    } else {
-                      element.isFav = true;
-                      tempFavArr.push(element);
-                      dispatch({
-                        type: typeActions.FAV_ARR,
-                        payload: tempFavArr,
-                      });
-                    }
-                  }
-                });
-                dispatch({ type: typeActions.CHARACTER_ARR, payload: tempArr });
+                dispatch({ type: typeActions.FAV_ARR, payload: tempFavArr });
+
+                // tempArr.forEach((element) => {
+                //   if (element.char_id === character.char_id) {
+                //     // if (element.isFav === true) {
+                //     //   element.isFav = false;
+                //     //   const filterChar = favArr.filter(
+                //     //     (item) => item.char_id !== element.char_id
+                //     //   );
+                //     //   dispatch({
+                //     //     type: typeActions.FAV_ARR,
+                //     //     payload: filterChar,
+                //     //   });
+                //     // } else {
+                //     //   element.isFav = true;
+                //     //   tempFavArr.push(element);
+                //     //   dispatch({
+                //     //     type: typeActions.FAV_ARR,
+                //     //     payload: tempFavArr,
+                //     //   });
+                //     // }
+
+                //   }
+                // });
               }}
             >
-              {character.isFav === true ? (
+              {favorite ? (
                 <HeartFilledSvg width={35} height={40} />
               ) : (
                 <HeartSvg width={35} height={40} />

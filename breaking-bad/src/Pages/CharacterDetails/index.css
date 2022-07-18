@@ -13,6 +13,7 @@
 .back-icon-view {
   padding-left: 2rem;
   padding-top: 20px;
+  cursor: pointer;
 }
 
 .transparent-view {

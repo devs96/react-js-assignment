@@ -90,7 +90,7 @@ const CharacterDetails = () => {
           <div className="section">
             <p className="title">Occupation</p>
             <p className="description">{charData.occupation?.[0]}</p>
-            <p className="second-occupation-text">{charData.occupation?.[1]}</p>
+            <p className="description">{charData.occupation?.[1]}</p>
           </div>
           <div className="section">
             <p className="title">Appeared in</p>

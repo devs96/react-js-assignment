@@ -1,3 +1,7 @@
+.leftBackButton {
+  cursor: pointer;
+}
+
 .middle-header-view {
   display: flex;
   flex-direction: row;

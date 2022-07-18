@@ -17,6 +17,7 @@ const Favorites = () => {
   const RenderLeft = () => {
     return (
       <div
+        className="leftBackButton"
         onClick={() => {
           history(-1);
         }}

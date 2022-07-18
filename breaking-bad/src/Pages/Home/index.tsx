@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 export interface CharacterData {
   char_id: number;
   name: string;
-  isFav: boolean;
+  // isFav: boolean;
   img: string;
   nickname: string;
   birthday: string;
@@ -27,31 +27,26 @@ export interface CharacterData {
 const Home = () => {
   const characterArr = useSelector((state: RootState) => state.characterArr);
   const [allCharacters, setAllCharacters] = useState<CharacterData[]>([]);
-  const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
-  const [firstRender, setFirstRender] = useState<boolean>(false);
+  const [showSearchBar, setShowSearchBar] = useState<boolean>(true);
   const [searchText, setSearchText] = useState<string>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const history = useNavigate();
 
   useEffect(() => {
-    setFirstRender(true);
-  }, []);
-
-  useEffect(() => {
-    if (allCharacters.length === 0) {
+    if (allCharacters && allCharacters.length === 0) {
+      setIsLoading(true);
       setAllCharacters(characterArr);
+    } else {
+      setIsLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [characterArr]);
+  }, [characterArr, allCharacters]);
 
   useEffect(() => {
-    console.log("searchText ", searchText);
-
-    if (searchText !== undefined) {
-      const delayDebounceFn = setTimeout(() => {
-        searchData(searchText ?? "");
-      }, 1000);
-      return () => clearTimeout(delayDebounceFn);
-    }
+    const delayDebounceFn = setTimeout(() => {
+      searchData(searchText ?? "");
+    }, 1000);
+    return () => clearTimeout(delayDebounceFn);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchText]);
 
@@ -59,6 +54,7 @@ const Home = () => {
     searchCharacter(value)
       .then((res) => {
         setAllCharacters(res);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -80,19 +76,16 @@ const Home = () => {
         <div className={styles.searchIconView}>
           <input
             className={
-              showSearchBar
-                ? styles.textfield
-                : firstRender
-                ? styles.textfield_active
-                : styles.textfield_hidden
+              showSearchBar ? styles.textfield_active : styles.textfield
             }
             value={searchText}
-            type="text"
+            // type="text"
             onChange={(text) => {
               setSearchText(text.target.value);
+              setIsLoading(true);
             }}
             placeholder="Search"
-            autoComplete="false"
+            // autoComplete="false"
           />
 
           <div
@@ -125,9 +118,16 @@ const Home = () => {
         transition={{ ease: "easeIn" }}
       >
         <Header RenderLeft={RenderLeft} RenderRight={RenderRight} />
-        <div className={styles.grid}>
-          <RenderCharacters characterData={allCharacters} history={history} />
-        </div>
+
+        {isLoading ? (
+          <div className={styles.loaderView}>
+            <div className={styles.loader} />
+          </div>
+        ) : (
+          <div className={styles.grid}>
+            <RenderCharacters characterData={allCharacters} history={history} />
+          </div>
+        )}
       </motion.div>
     </>
   );
