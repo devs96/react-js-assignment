@@ -51,9 +51,15 @@ const Favorites = () => {
         RenderMiddle={RenderMiddle}
         RenderRight={RenderRight}
       />
-      <div className="grid">
-        <RenderCharacters characterData={favoriteArray} history={history} />
-      </div>
+      {favoriteArray && favoriteArray.length !== 0 ? (
+        <div className="grid">
+          <RenderCharacters characterData={favoriteArray} history={history} />
+        </div>
+      ) : (
+        <div className="recordsView">
+          <p className="emptyRecords">No favorites</p>
+        </div>
+      )}
     </motion.div>
   );
 };

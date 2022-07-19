@@ -45,7 +45,7 @@ const Home = () => {
       setIsLoading(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [characterArr, allCharacters]);
+  }, [characterArr]);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -59,6 +59,8 @@ const Home = () => {
     searchCharacter(value)
       .then((res) => {
         setAllCharacters(res);
+        console.log(res);
+
         setIsLoading(false);
       })
       .catch((err) => {
@@ -130,9 +132,13 @@ const Home = () => {
           <div className={styles.loaderView}>
             <div className={styles.loader} />
           </div>
-        ) : (
+        ) : allCharacters && allCharacters.length !== 0 ? (
           <div className={styles.grid}>
             <RenderCharacters characterData={allCharacters} history={history} />
+          </div>
+        ) : (
+          <div className={styles.loaderView}>
+            <p className={styles.emptyRecords}>No records found</p>
           </div>
         )}
       </motion.div>
