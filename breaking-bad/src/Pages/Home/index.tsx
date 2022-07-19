@@ -15,7 +15,6 @@ import { motion } from "framer-motion";
 export interface CharacterData {
   char_id: number;
   name: string;
-  // isFav: boolean;
   img: string;
   nickname: string;
   birthday: string;

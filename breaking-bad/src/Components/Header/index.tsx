@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header: FC<HeaderProps> = ({ RenderLeft, RenderRight, RenderMiddle }) => {
   return (
-    <div className="main-view">
+    <div className="mainView">
       {RenderLeft && <RenderLeft />}
       {RenderMiddle && <RenderMiddle />}
       {RenderRight && <RenderRight />}

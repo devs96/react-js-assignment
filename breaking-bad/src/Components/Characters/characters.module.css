@@ -1,0 +1,62 @@
+.item {
+  background-color: #131313;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+
+.item:hover {
+  transform: scale(1.04);
+  transition: 0.4s;
+  background-color: #202020;
+}
+
+.characterImg {
+  aspect-ratio: 3/4;
+  width: 160px;
+  padding: 14px;
+  object-fit: cover;
+}
+
+.dataView {
+  flex: 0.9;
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+
+.charName {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.charNickname {
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 5%;
+}
+
+.portrayedView {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30%;
+}
+
+.portrayedKey {
+  color: #18ca75;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.portrayedValue {
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 20px;
+}
+
+.likeView {
+  flex: 0.1;
+  margin: 14px;
+}
