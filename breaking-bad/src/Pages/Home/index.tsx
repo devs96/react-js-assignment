@@ -6,11 +6,12 @@ import styles from "./home.module.css";
 
 import { useSelector } from "react-redux";
 import { ReactComponent as HeartFilled } from "../../Assets/Images/HEART_FILLED.svg";
-import RNLogo from "../../Assets/Images/RN_LOGO.png";
 import { ReactComponent as SearchIcon } from "../../Assets/Images/SEARCH_ICON.svg";
 import { RootState } from "../../Redux/store";
 import { searchCharacter } from "./searchApis";
 import { motion } from "framer-motion";
+
+import { ReactComponent as Logo } from "../../Assets/Images/RN_LOGO.svg";
 
 export interface CharacterData {
   char_id: number;
@@ -70,8 +71,8 @@ const Home = () => {
   const RenderLeft = () => {
     return (
       <div className={styles.leftHeaderView}>
-        <img src={RNLogo} alt="RNLogo" />
-        <p className="breaking-bad-title">The Breaking bad</p>
+        <Logo />
+        <p className={styles.breakingBadTitle}>The Breaking bad</p>
       </div>
     );
   };

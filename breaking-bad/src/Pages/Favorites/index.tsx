@@ -1,14 +1,13 @@
 import Header from "../../Components/Header";
 import { ReactComponent as BackIcon } from "../../Assets/Images/BACK_ICON.svg";
-import RNLogo from "../../Assets/Images/RN_LOGO.png";
-
 import { useNavigate } from "react-router-dom";
-
 import "./index.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 import RenderCharacters from "../../Components/RenderCharacters";
 import { motion } from "framer-motion";
+
+import { ReactComponent as Logo } from "../../Assets/Images/RN_LOGO.svg";
 
 const Favorites = () => {
   const favoriteArray = useSelector((state: RootState) => state.favArr);
@@ -30,7 +29,7 @@ const Favorites = () => {
   const RenderMiddle = () => {
     return (
       <div className="middleHeaderView">
-        <img src={RNLogo} alt="RNLogo" />
+        <Logo />
         <p className="breakingBadTitle">The Breaking bad</p>
       </div>
     );
