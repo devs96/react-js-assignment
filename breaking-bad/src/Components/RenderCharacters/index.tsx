@@ -65,31 +65,7 @@ const RenderCharacters: FC<CharactersProps> = ({ characterData, history }) => {
                 } else {
                   tempFavArr.push(character);
                 }
-
                 dispatch({ type: typeActions.FAV_ARR, payload: tempFavArr });
-
-                // tempArr.forEach((element) => {
-                //   if (element.char_id === character.char_id) {
-                //     // if (element.isFav === true) {
-                //     //   element.isFav = false;
-                //     //   const filterChar = favArr.filter(
-                //     //     (item) => item.char_id !== element.char_id
-                //     //   );
-                //     //   dispatch({
-                //     //     type: typeActions.FAV_ARR,
-                //     //     payload: filterChar,
-                //     //   });
-                //     // } else {
-                //     //   element.isFav = true;
-                //     //   tempFavArr.push(element);
-                //     //   dispatch({
-                //     //     type: typeActions.FAV_ARR,
-                //     //     payload: tempFavArr,
-                //     //   });
-                //     // }
-
-                //   }
-                // });
               }}
             >
               {favorite ? (
