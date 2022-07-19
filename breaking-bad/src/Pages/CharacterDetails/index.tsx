@@ -17,7 +17,7 @@ const CharacterDetails = () => {
       <>
         {charData.appearance.map((item, index) => {
           return (
-            <div key={index.toString()} className="season-view">
+            <div key={index.toString()} className="seasonView">
               <p>Season {item}</p>
             </div>
           );
@@ -31,14 +31,14 @@ const CharacterDetails = () => {
       <>
         {otherCharacters.map((element, index) => {
           return (
-            <div key={index.toString()} className="individual-char-view">
+            <div key={index.toString()} className="individualCharView">
               <img
-                className="other-char-img"
+                className="otherCharImg"
                 alt="background-img"
                 src={element.img}
               />
-              <p className="other-char-name">{element.name}</p>
-              <p className="other-char-nickname">{element.nickname}</p>
+              <p className="otherCharName">{element.name}</p>
+              <p className="otherCharNickname">{element.nickname}</p>
             </div>
           );
         })}
@@ -58,30 +58,30 @@ const CharacterDetails = () => {
     >
       <div className="container">
         <div
-          className="image-container"
+          className="imageContainer"
           style={{ backgroundImage: "url(" + charData.img + ")" }}
         >
           <div
             onClick={() => {
               history(-1);
             }}
-            className="back-icon-view"
+            className="backIconView"
           >
             <BackIcon />
           </div>
-          <div className="transparent-view">
-            <img className="bg-img" alt="background-img" src={charData.img} />
-            <p className="header-name">{charData.name}</p>
-            <p className="header-nickname">{charData.nickname}</p>
+          <div className="transparentView">
+            <img className="bgImg" alt="backgroundImg" src={charData.img} />
+            <p className="headerName">{charData.name}</p>
+            <p className="headerNickname">{charData.nickname}</p>
           </div>
         </div>
-        <div className="data-container">
+        <div className="dataContainer">
           <p className="title">Portrayed</p>
-          <div className="date-view">
+          <div className="dateView">
             <p className="description">Bryan Carson</p>
 
             {charData.birthday !== "Unknown" && (
-              <div className="birthday-view">
+              <div className="birthdayView">
                 <BirthdayIcon />
                 <p className="description">{charData.birthday}</p>
               </div>
@@ -94,13 +94,13 @@ const CharacterDetails = () => {
           </div>
           <div className="section">
             <p className="title">Appeared in</p>
-            <div className="appeared-view">
+            <div className="appearedView">
               <RenderAppearedIn />
             </div>
           </div>
           <div className="section">
-            <p className="other-char">Other Characters</p>
-            <div className="other-char-view">
+            <p className="otherChar">Other Characters</p>
+            <div className="otherCharView">
               <RenderOtherChar />
             </div>
           </div>

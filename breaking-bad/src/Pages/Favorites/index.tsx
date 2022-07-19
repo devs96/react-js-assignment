@@ -29,15 +29,15 @@ const Favorites = () => {
 
   const RenderMiddle = () => {
     return (
-      <div className="middle-header-view">
+      <div className="middleHeaderView">
         <img src={RNLogo} alt="RNLogo" />
-        <p className="breaking-bad-title">The Breaking bad</p>
+        <p className="breakingBadTitle">The Breaking bad</p>
       </div>
     );
   };
 
   const RenderRight = () => {
-    return <p className="sub-title">Favorites</p>;
+    return <p className="subTitle">Favorites</p>;
   };
 
   return (

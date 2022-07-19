@@ -2,19 +2,19 @@
   cursor: pointer;
 }
 
-.middle-header-view {
+.middleHeaderView {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.breaking-bad-title {
+.breakingBadTitle {
   margin-left: 1rem;
   font-size: 24px;
   font-weight: 700;
 }
 
-.sub-title {
+.subTitle {
   color: #18ca75;
   font-size: 24px;
 }
@@ -24,7 +24,7 @@
   grid-template-columns: repeat(auto-fit, minmax(450px, 450px));
   grid-gap: 20px 50px;
   color: white;
-  justify-content: flex-start;
+  justify-content: center;
   margin-top: 5%;
   margin-bottom: 5%;
   padding-left: 3%;

@@ -4,19 +4,19 @@
   flex-direction: row;
 }
 
-.image-container {
+.imageContainer {
   height: 100vh;
   width: 45vw;
   background-position: 50% 30%;
 }
 
-.back-icon-view {
+.backIconView {
   padding-left: 2rem;
   padding-top: 20px;
   cursor: pointer;
 }
 
-.transparent-view {
+.transparentView {
   background-image: linear-gradient(to bottom, transparent, #070707);
   height: 100%;
   display: flex;
@@ -25,28 +25,28 @@
   justify-content: center;
 }
 
-.bg-img {
+.bgImg {
   width: 180px;
   border-radius: 5px;
   aspect-ratio: 2/3;
   object-fit: cover;
 }
 
-.header-name {
+.headerName {
   font-size: 50px;
   font-weight: 700;
   margin-top: 3%;
   text-align: center;
 }
 
-.header-nickname {
+.headerNickname {
   text-align: center;
   font-size: 32px;
   font-weight: 300;
   margin-top: 1%;
 }
 
-.data-container {
+.dataContainer {
   margin: 3%;
   width: 50%;
 }
@@ -57,7 +57,7 @@
   font-size: 24px;
 }
 
-.birthday-view {
+.birthdayView {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -70,7 +70,7 @@
   margin-left: 10px;
 }
 
-.date-view {
+.dateView {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -80,19 +80,19 @@
   margin-top: 5%;
 }
 
-.second-occupation-text {
+.secondOccupationText {
   color: #18ca75;
   font-size: 20px;
   font-weight: 300;
   margin-top: 2%;
 }
 
-.appeared-view {
+.appearedView {
   display: flex;
   flex-direction: row;
 }
 
-.season-view {
+.seasonView {
   background-color: #1a1a1a;
   padding: 1%;
   margin-right: 2%;
@@ -101,12 +101,12 @@
   text-align: center;
 }
 
-.other-char {
+.otherChar {
   font-size: 24px;
   font-weight: 700;
 }
 
-.other-char-view {
+.otherCharView {
   display: flex;
   flex-direction: row;
   overflow: auto;
@@ -117,24 +117,24 @@
   display: none;
 }
 
-.individual-char-view {
+.individualCharView {
   width: 150px;
   margin-right: 4%;
 }
 
-.other-char-name {
+.otherCharName {
   font-size: 16px;
   font-weight: 700;
   margin-top: 5px;
 }
 
-.other-char-nickname {
+.otherCharNickname {
   font-size: 14px;
   font-weight: 300;
   margin-top: 5px;
 }
 
-.other-char-img {
+.otherCharImg {
   width: 140px;
   border-radius: 5px;
   aspect-ratio: 3/4;
