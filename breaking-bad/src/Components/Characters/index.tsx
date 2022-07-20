@@ -57,8 +57,10 @@ const Characters: FC<CharacterProps> = ({
         className={styles.likeView}
         onClick={(e) => {
           e.stopPropagation();
-          const payload = { favorite: favorite, character: character };
-          dispatch({ type: typeActions.FAV_ARR, payload: payload });
+          dispatch({
+            type: typeActions.FAV_ARR,
+            payload: { favorite: favorite, character: character },
+          });
         }}
       >
         {favorite ? (
