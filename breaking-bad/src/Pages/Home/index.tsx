@@ -25,7 +25,9 @@ export interface CharacterData {
 }
 
 const Home = () => {
-  const characterArr = useSelector((state: RootState) => state.characterArr);
+  const characterArr = useSelector(
+    (state: RootState) => state.characters.characterArr
+  );
   const [allCharacters, setAllCharacters] = useState<CharacterData[]>([]);
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const [firstRender, setFirstRender] = useState<boolean>(false);

@@ -26,22 +26,20 @@ const Characters: FC<CharacterProps> = ({
   favArr,
 }) => {
   const dispatch = useDispatch();
+  const onItemClick = () => {
+    const filterCharacter = characterData.filter(
+      (item) => item.char_id !== character.char_id
+    );
+    history("/character", {
+      state: {
+        charData: character,
+        otherCharacters: filterCharacter,
+      },
+    });
+  };
+
   return (
-    <div
-      className={styles.item}
-      key={index.toString()}
-      onClick={() => {
-        const filterCharacter = characterData.filter(
-          (item) => item.char_id !== character.char_id
-        );
-        history("/character", {
-          state: {
-            charData: character,
-            otherCharacters: filterCharacter,
-          },
-        });
-      }}
-    >
+    <div className={styles.item} key={index.toString()} onClick={onItemClick}>
       <img
         src={character.img}
         className={styles.characterImg}
@@ -59,15 +57,8 @@ const Characters: FC<CharacterProps> = ({
         className={styles.likeView}
         onClick={(e) => {
           e.stopPropagation();
-          let tempFavArr = [...favArr];
-          if (favorite) {
-            tempFavArr = tempFavArr.filter((item: CharacterData) => {
-              return item.char_id !== character.char_id;
-            });
-          } else {
-            tempFavArr.push(character);
-          }
-          dispatch({ type: typeActions.FAV_ARR, payload: tempFavArr });
+          const payload = { favorite: favorite, character: character };
+          dispatch({ type: typeActions.FAV_ARR, payload: payload });
         }}
       >
         {favorite ? (

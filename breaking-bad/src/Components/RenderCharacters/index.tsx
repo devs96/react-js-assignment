@@ -12,7 +12,9 @@ interface CharactersProps {
 }
 
 const RenderCharacters: FC<CharactersProps> = ({ characterData, history }) => {
-  const favArr = useSelector((rootState: RootState) => rootState.favArr);
+  const favArr = useSelector(
+    (rootState: RootState) => rootState.favorites.favArr
+  );
   return (
     <>
       {characterData?.map((character, index) => {

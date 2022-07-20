@@ -10,7 +10,9 @@ import { motion } from "framer-motion";
 import { ReactComponent as Logo } from "../../Assets/Images/RN_LOGO.svg";
 
 const Favorites = () => {
-  const favoriteArray = useSelector((state: RootState) => state.favArr);
+  const favoriteArray = useSelector(
+    (state: RootState) => state.favorites.favArr
+  );
   const history = useNavigate();
 
   const RenderLeft = () => {
